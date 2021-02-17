@@ -1,0 +1,96 @@
+﻿@model WebApplication2.Models.ViewProductsViewModel
+
+@using WebApplication2.Models
+
+@{
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+
+<section class="details">
+    <div class="container py-5 py-5">
+        <div class="row">
+            @foreach (Produit p in Model.Produits)
+            {
+                <div class="col-sm-6 ">
+                    <img src="~/images/Produit-@{@p.ProduitID}.jpg" alt="product" id="cart__product" class="img-fluid" style="display: flex; justify-content: center; ">
+
+                </div>
+
+                <div class="col-sm-6 py-3  ">
+                    <h5 class="font-baloo font-size-30 color-primary">@p.Nom</h5>
+                    <h5 class="font-rale" style="font-size: 18px">@p.fournisseur</h5>
+                    <div class="d-flex py-2">
+                        <div class="rating color-primary font-size-12">
+                            <span><em class="fas fa-star"></em></span>
+                            <span><em class="fas fa-star"></em></span>
+                            <span><em class="fas fa-star"></em></span>
+                            <span><em class="fas fa-star"></em></span>
+                            <span><em class="fas fa-star"></em></span>
+                        </div>
+                        <a href="#" class="px-3 color-grey font-rale font-size-14"></a>
+                    </div>
+                    <hr class="m-0">
+                    <h5 class="font-baloo font-size-24 color-grey2 py-2">Avantages Principaux :</h5>
+                    <p>@p.Description</p>
+                    <h5 class="font-baloo font-size-24 color-grey2 py-3 ">Couleurs :</h5>
+                    <select id="color">
+                        <option value="Noir">Noir</option>
+                        <option value="Rouge">Rouge</option>
+                        <option value="Bleu">Bleu</option>
+                        <option value="Blanc">Blanc</option>
+                        <option value="Gris">Gris</option>
+                    </select>
+                    <div class="price py-5">
+                        <span class="product-old-price font-baloo font-size-20">@(@p.Prix+100),00&nbsp;Dhs</span>
+                        <span class="font-baloo font-size-24 " id="price"><strong>@(@p.Prix),00 Dhs</strong></span>&nbsp;&nbsp;
+                        <span class="font-baloo font-size-20 economise py-3 px-3 text-white">ÉCONOMISEZ 100,00 Dhs </span>
+                    </div>
+                    <h5 class="font-baloo font-size-24 color-grey2  " id="quantité">Quantité:</h5>
+                    <div class=" form-row font-size-14 font-baloo achat__spec">
+                        <div class="col quantite_value">
+
+                            <div>
+                                <br>
+                                <button data-id="prod1" class="diminue_qt">-</button>
+                                <input data-id="prod1" id="quantite" type="number" min="1" value="1" class="quantite__input">
+                                <button data-id="prod1" class="augmente_qt">+</button>
+                            </div>
+
+                        </div>
+                        <div class="col achat-product pt-3">
+                            <button class="color-primary-bg font-size-14  btn-achat-product text-white" onclick="AddToPanier(@p.ProduitID)">Ajouter au panier</button>
+                        </div>
+
+
+                    </div> <hr class="pt-4">
+                    <div class="details_livr">
+                        <span class="py-2">
+                            <svg>
+                                <use xlink:href="~/images/sprite.svg#icon-truck"></use>
+                            </svg>
+                            Livraison offerte à partir de 5000,00 Dhs de commande
+                        </span><br>
+                        <span class="py-2">
+                            <svg>
+                                <use xlink:href="~/images/sprite.svg#icon-credit-card"></use>
+                            </svg>
+                            Paiement Sécurisé
+                        </span><br>
+                        <span class="py-2">
+                            <img src="~/images/icons8-refresh.svg" alt="retour_produit">
+                            Expédition Sous 24h
+                        </span>
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<script>
+    function AddToPanier(prodID) {
+        var q = document.getElementById('quantite').value;
+        var url = '@Url.Action("AddtoPanier", "Produits")?productID=' + prodID +'&quantite='+q;
+            location.href = url;
+    }
+</script>

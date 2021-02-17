@@ -1,0 +1,64 @@
+﻿@model IEnumerable<WebApplication2.PRODUIT>
+
+@{
+    ViewBag.Title = "Produits";
+}
+@{
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+
+<div class="container">
+    <h2>GetProducts</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FournisseurID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategorieID)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prix)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FournisseurID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategorieID)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProduitID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ProduitID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ProduitID })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

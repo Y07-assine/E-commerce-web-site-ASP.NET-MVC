@@ -1,0 +1,39 @@
+﻿@model WebApplication2.Models.ViewProductsViewModel
+
+@using WebApplication2.Models
+
+@{
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+<section class=" filter py-5">
+    <div class="container py-5">
+        <div class="panier_achat ">
+            <h5 class="font-baloo color-primary font-size-30"><strong>Votre panier est bien modifiée  !</strong> </h5>
+            <div class="btn-panier">
+                <button class=" font-size-14  btn-back-to-achat font-baloo" onclick="backtoAchat()">Continuer mes achats</button>
+                <button class="color-primary-bg font-size-14  btn-paiement text-white font-baloo" onclick="Panier()">Mon Panier</button>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="list_product">
+    <div class="container">
+        <h4 class="font-rubik font-size-20 text-center">PLUS DE PRODUITS</h4>
+        <hr />
+        <div class="owl-carousel owl-theme" id="item_phone">
+            @Html.Action("Categorie", "Home", new { cat = 4 })
+        </div>
+        <button type="submit" class="btn color-primary-bg font-size-20  btn-achat-tout" id="accessoire" onclick="getCat(this)">Voir tout</button>
+    </div>
+
+</section>
+<script>
+       function backtoAchat() {
+          var url = '@Url.Action("GetViewProducts", "Produits")?marque=all';
+            location.href = url;
+        }
+        function Panier() {
+            var url = '@Url.Action("DetailsPanier", "Produits")';
+            location.href = url;
+        }
+</script>

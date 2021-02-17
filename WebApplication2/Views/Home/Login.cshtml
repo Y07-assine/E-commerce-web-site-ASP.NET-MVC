@@ -1,0 +1,55 @@
+﻿@model WebApplication2.Models.ViewProductsViewModel
+
+@using WebApplication2.Models
+
+@{
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+<section class="login">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-sm-6  border">
+                <h5 class="px-5 pt-3">Connexion client</h5>
+                <hr>
+                <form>
+                    <h6 class="pt-5">Adresse e-mail :</h6>
+                    <input type="text" id="emailx">
+                    <h6 class="pt-3">Mot de passe :</h6>
+                    <input type="password" id="mdpx">
+                    <a href="#" class="pt-5">Vous avez oublié votre mot de passe ?</a><br>
+                    <button type="submit" value="Se connecter" class="cnx" onclick="connecter()">Se connecter</button>
+                </form>
+
+            </div>
+            <div class="col-sm-6 border ">
+                <h5 class="px-5 pt-3">Nouveau sur UNIVERSAL ?</h5><hr>
+                <form>
+                    <h6 class="pt-5">Prenom :</h6>
+                    <input type="text" id="nom">
+                    <h6 class="pt-3">Nom :</h6>
+                    <input type="text" id="prenom">
+                    <h6 class="pt-3">Adresse e-mail :</h6>
+                    <input type="text" id="email">
+                    <h6 class="pt-3">Mot de passe :</h6>
+                    <input type="password" id="mdp">
+                    <h6 class="pt-3">Confirmez votre mot de passe :</h6>
+                    <input type="password" id="Vmdp">
+                    <span id="verifie"></span>
+                    <input type="button" value="Se connecter" class="cnx" style="margin-bottom: 3rem; " onclick="inscription()">
+
+
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+<script>
+       function backtoAchat() {
+          var url = '@Url.Action("GetViewProducts", "Produits")';
+            location.href = url;
+       }
+</script>
+

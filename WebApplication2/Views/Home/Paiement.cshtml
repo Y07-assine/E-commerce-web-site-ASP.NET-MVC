@@ -1,0 +1,48 @@
+﻿
+@model WebApplication2.Models.ViewProductsViewModel
+
+@using WebApplication2.Models
+
+@{
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+<section class="login">
+    <div class="container py border" style="margin-top:5rem;">
+                <h5 class="px-5 pt-3">FINALISATION DE LA COMMANDE </h5><hr>
+                <form>
+                    <h6 class="pt-5">Votre ID :</h6>
+                    <input type="text" id="id">
+                    <h6 class="pt-5">Prenom :</h6>
+                    <input type="text" id="nom">
+                    <h6 class="pt-3">Nom :</h6>
+                    <input type="text" id="prenom">
+                    <h6 class="pt-3">Adresse e-mail :</h6>
+                    <input type="text" id="email">
+                    <h6 class="pt-3">Adresse :</h6>
+                    <input type="text" id="adresse">
+                    <h6 class="pt-3">Mode de paiement :</h6>
+                    <form id="mode">
+                        <input type="radio" id="carte" name="mode" value="carte" style="width: auto; height: auto; display: inline; margin:1rem;" >
+                        <label for="apple"><img src="~/images/visa.png" style="width:200px;height:25px;"/> Paiement par la carte bancaire (livraison gratuite)</label><br>
+                        <input type="radio" id="cash" name="mode" value="cash" style="width:auto; height:auto; display:inline; margin:1rem;">
+                        <label for="sumsung"><img src="~/images/cash.png" style="width:30px;height:25px;" /> Paiement cash á la livraison</label><br>
+                    </form>
+                    <span id="verifie"></span>
+                    <input type="button" value="Envoyer" class="cnx" style="margin-bottom: 3rem; " onclick="commander()">
+
+
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+<script>
+    function commander() {
+        var id = document.getElementById("id").value;
+        var url = '@Url.Action("Addcommande", "Produits")?clientID=' + id;
+            location.href = url;
+       }
+</script>

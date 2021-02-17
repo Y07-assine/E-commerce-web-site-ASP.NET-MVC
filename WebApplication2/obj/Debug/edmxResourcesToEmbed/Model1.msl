@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities3">
+    <EntitySetMapping Name="CATEGORIE">
+      <EntityTypeMapping TypeName="Model.CATEGORIE">
+        <MappingFragment StoreEntitySet="CATEGORIE">
+          <ScalarProperty Name="CategorieID" ColumnName="CategorieID" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COULEUR">
+      <EntityTypeMapping TypeName="Model.COULEUR">
+        <MappingFragment StoreEntitySet="COULEUR">
+          <ScalarProperty Name="CouleurID" ColumnName="CouleurID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FOURNISSEUR">
+      <EntityTypeMapping TypeName="Model.FOURNISSEUR">
+        <MappingFragment StoreEntitySet="FOURNISSEUR">
+          <ScalarProperty Name="FournisseurID" ColumnName="FournisseurID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUIT">
+      <EntityTypeMapping TypeName="Model.PRODUIT">
+        <MappingFragment StoreEntitySet="PRODUIT">
+          <ScalarProperty Name="ProduitID" ColumnName="ProduitID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="FournisseurID" ColumnName="FournisseurID" />
+          <ScalarProperty Name="CategorieID" ColumnName="CategorieID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PRODUIT_COULEUR" TypeName="Model.PRODUIT_COULEUR" StoreEntitySet="PRODUIT_COULEUR">
+      <EndProperty Name="COULEUR">
+        <ScalarProperty Name="CouleurID" ColumnName="CouleurID" />
+      </EndProperty>
+      <EndProperty Name="PRODUIT">
+        <ScalarProperty Name="ProduitID" ColumnName="ProduitID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="COMMANDE">
+      <EntityTypeMapping TypeName="Model.COMMANDE">
+        <MappingFragment StoreEntitySet="COMMANDE">
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="quantite" ColumnName="quantite" />
+          <ScalarProperty Name="produitID" ColumnName="produitID" />
+          <ScalarProperty Name="clientID" ColumnName="clientID" />
+          <ScalarProperty Name="CommandeID" ColumnName="CommandeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

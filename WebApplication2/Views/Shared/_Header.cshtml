@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.slim.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet" />
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <!-- Required Core Stylesheet -->
+    <link rel="stylesheet" href="@Url.Content("node_modules/@glidejs/glide/dist/css/glide.core.min.css")" type="text/css">
+
+    <!-- Optional Theme Stylesheet -->
+    <link rel="stylesheet" href="@Url.Content("node_modules/@glidejs/glide/dist/css/glide.theme.min.css")" type="text/css">
+    <!--slick-->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <!--owl-carousel2-cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" />
+
+    <!--Plugin CSS file with desired skin-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css" />
+
+    <!--jQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!--Plugin JavaScript file-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/StyleSheet1.css" />
+
+    <title>Universal</title>
+</head>
+<body>
+    <header class="header">
+        <div class="navigation_container">
+            <div class="container_header">
+                <nav class="nav_container">
+                    <div class="nav__hamburger navbar-toggle">
+                        <svg>
+                            <use xlink:href="~/images/sprite.svg#icon-menu"></use>
+                        </svg>
+                    </div>
+                    <div class="nav__logo">
+                        <a href="/Home/Home" class="scroll-link">
+                            <strong><em>UNIVERSAL</em></strong>
+                        </a>
+                    </div>
+                    <div class="nav__menu">
+                        <div class="menu__top">
+                            <span class="nav__categorie">UNIVERSAL</span>
+                            <a href="#" class="close__toggle">
+                                <svg>
+                                    <use xlink:href="~/images/sprite.svg#icon-cross"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <ul class="nav__list">
+                            <li class="nav__item" onclick="getCat(this)" id="phone">
+                                <a href="/Produits/GetPartialViewProduct?catID=1&marque=all" class="nav__link scroll-link">Smartphones</a>
+                            </li>
+                            <li class="nav__item" onclick="getCat(this)" id="ordi">
+                                <a href="/Produits/GetPartialViewProduct?catID=2&marque=all" class="nav__link scroll-link">Ordinateurs</a>
+                            </li>
+                            <li class="nav__item" onclick="getCat(this)" id="acc">
+                                <a href="/Produits/GetPartialViewProduct?catID=3&marque=all" class="nav__link scroll-link">Accessoires</a>
+                            </li>
+                            <li class="nav__item">
+                                <a href="/Produits/GetPartialViewProduct?catID=4&marque=all" class="nav__link scroll-link">Plus de produits</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="nav_icons">
+                        <a href="~/Home/Login" class="icon_item">
+                            <span id="login">Se connecter/S'inscrire</span>
+                            <svg>
+                                <use xlink:href="~/images/sprite.svg#icon-user"></use>
+                            </svg>
+                        </a>
+                        <div class="nav-search">
+                            <a href="#" class="icon_item">
+                                <svg>
+                                    <use xlink:href="~/images/sprite.svg#icon-search"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <a href="/Produits/DetailsPanier" class="icon_item">
+                            <svg>
+                                <use xlink:href="~/images/sprite.svg#icon-shopping-basket"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="container-fluid navigation_option">
+            <div class="option item-slider">
+                <div class="list_option slider-one">
+                    <div>
+                        <span>
+                            <svg>
+                                <use xlink:href="~/images/sprite.svg#icon-truck"></use>
+                            </svg>
+                            <h5> Livraison à domicile disponible</h5>
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            <svg>
+                                <use xlink:href="~/images/sprite.svg#icon-credit-card"></use>
+                            </svg>
+                            <h5>PAIEMENT:Cash à la livraison ou par carte</h5>
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            <img src="~/images/icons8-refresh.svg" alt="retour_produit" class="center">
+                            <h5>RETOUR GRATUIT Dans Les 7 Jours</h5>
+
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            <img src="~/images/warranty-certificate-svgrepo-com.svg" alt="garantie_produit">
+                            <h5>12 MOIS DE GARANTIE</h5>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search-bar">
+            <input class="search-input " id="find" type="text" placeholder="Rechercher ">
+            <a href="#" class="close__search">
+                <svg>
+                    <use xlink:href="~/images/sprite.svg#icon-cross"></use>
+                </svg>
+            </a>
+        </div>
+    </header>
+    <main>
+        @RenderBody()
+        <!--Newsletter-->
+        <section class="section newsletter" id="contact">
+            <div class="container">
+                <div class="newsletter__content">
+                    <div class="newsletter__data">
+                        <h3>NEWSLETTER</h3>
+                        <p>S’inscrire pour recevoir nos offres exclusives</p>
+                    </div>
+                    <form action="#">
+                        <input type="email" placeholder="Enter your email address" class="newsletter__email">
+                        <a class="newsletter__link" href="#">subscribe</a>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!--footer-->
+    <footer class="footer">
+        <div class="contianer">
+            <div class="footer__top">
+                <div class="footer-top__box">
+                    <h3>SERVICE CLIENT</h3>
+                    <a href="#">Service client</a>
+                    <a href="#">Livraison</a>
+                    <a href="#">Moyens de paiement</a>
+                    <a href="#">Échange et retours</a>
+                    <a href="#">Contactez-nous</a>
+                </div>
+                <div class="footer-top__box">
+                    <h3>A PROPOS DE NOUS</h3>
+                    <a href="#">About UNIVESAL </a>
+                    <a href="#">Nos marques</a>
+                    <a href="#">Traitement des cookies</a>
+                    <a href="#">Politique de confidentialité</a>
+                    <a href="#">Conditions générales de vente</a>
+                </div>
+                <div class="footer-top__box">
+                    <h3>FOLLOW US</h3>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Newsletter</a>
+                </div>
+                <div class="footer-top__box">
+                    <h3>CONTACT US</h3>
+                    <div>
+                        <span>
+                            <svg>
+                                <use xlink:href="~/images/sprite.svg#icon-location"></use>
+                            </svg>
+                        </span>
+                        42  Casablanca, Morocco
+                    </div>
+                    <div>
+                        <span>
+                            <svg>
+                                <use xlink:href="~/images/sprite.svg#icon-envelop"></use>
+                            </svg>
+                        </span>
+                        UNIVERSAL@gmail.com
+                    </div>
+                    <div>
+                        <span>
+                            <svg>
+                                <use xlink:href="~/images/sprite.svg#icon-phone"></use>
+                            </svg>
+                        </span>
+                        0661616161
+                    </div>
+                    <div>
+                        <span>
+                            <svg>
+                                <use xlink:href="~/images/sprite.svg#icon-paperplane"></use>
+                            </svg>
+                        </span>
+                        Casablanca, Morocco
+                    </div>
+                </div>
+
+            </div>
+            <div class="text-center text-white" style="margin-top: 2rem;">Copyrights 2021 by EL MERZOUKI Yassine</div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById("find").onkeypress = function (event) {
+            if (event.keyCode == 13) {
+                console.log(this.value);
+                var url = '@Url.Action("SearchProducts", "Produits")?search=' + this.value;
+                location.href = url;
+            }
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+    <script>
+        function getCat(cat) {
+            var cat = cat.id;
+            var Vcat;
+            console.log(cat);
+            switch (cat) {
+                case 'sphone': Vcat = 1; break;
+                case 'laptop': Vcat = 2; break;
+                case 'accessoire': Vcat = 3; break;
+                case 'plus': Vcat = 4; break;
+            }
+            var url = '@Url.Action("GetPartialViewProduct","Produits")?catID=' + Vcat+'&marque=all';
+            location.href = url;
+        }
+
+
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <!--Owl carousel js file-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+    <script src="~/Scripts/main.js" asp-append-version="true"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CATEGORIE">
+    <Key>
+      <PropertyRef Name="CategorieID" />
+    </Key>
+    <Property Name="CategorieID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Libelle" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="COMMANDE">
+    <Key>
+      <PropertyRef Name="CommandeID" />
+    </Key>
+    <Property Name="CommandeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clientID" Type="int" />
+    <Property Name="produitID" Type="int" />
+    <Property Name="quantite" Type="int" />
+    <Property Name="total" Type="int" />
+  </EntityType>
+  <EntityType Name="COULEUR">
+    <Key>
+      <PropertyRef Name="CouleurID" />
+    </Key>
+    <Property Name="CouleurID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FOURNISSEUR">
+    <Key>
+      <PropertyRef Name="FournisseurID" />
+    </Key>
+    <Property Name="FournisseurID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adresse" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="PRODUIT">
+    <Key>
+      <PropertyRef Name="ProduitID" />
+    </Key>
+    <Property Name="ProduitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="Prix" Type="int" />
+    <Property Name="FournisseurID" Type="int" />
+    <Property Name="CategorieID" Type="int" />
+  </EntityType>
+  <EntityType Name="PRODUIT_COULEUR">
+    <Key>
+      <PropertyRef Name="ProduitID" />
+      <PropertyRef Name="CouleurID" />
+    </Key>
+    <Property Name="ProduitID" Type="int" Nullable="false" />
+    <Property Name="CouleurID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_PRODUIT_CATEGORIE">
+    <End Role="CATEGORIE" Type="Self.CATEGORIE" Multiplicity="0..1" />
+    <End Role="PRODUIT" Type="Self.PRODUIT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORIE">
+        <PropertyRef Name="CategorieID" />
+      </Principal>
+      <Dependent Role="PRODUIT">
+        <PropertyRef Name="CategorieID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODUIT_COULEUR_COULEUR">
+    <End Role="COULEUR" Type="Self.COULEUR" Multiplicity="1" />
+    <End Role="PRODUIT_COULEUR" Type="Self.PRODUIT_COULEUR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COULEUR">
+        <PropertyRef Name="CouleurID" />
+      </Principal>
+      <Dependent Role="PRODUIT_COULEUR">
+        <PropertyRef Name="CouleurID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODUIT_COULEUR_PRODUIT">
+    <End Role="PRODUIT" Type="Self.PRODUIT" Multiplicity="1" />
+    <End Role="PRODUIT_COULEUR" Type="Self.PRODUIT_COULEUR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUIT">
+        <PropertyRef Name="ProduitID" />
+      </Principal>
+      <Dependent Role="PRODUIT_COULEUR">
+        <PropertyRef Name="ProduitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRODUIT_FOURNISSEUR">
+    <End Role="FOURNISSEUR" Type="Self.FOURNISSEUR" Multiplicity="0..1" />
+    <End Role="PRODUIT" Type="Self.PRODUIT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FOURNISSEUR">
+        <PropertyRef Name="FournisseurID" />
+      </Principal>
+      <Dependent Role="PRODUIT">
+        <PropertyRef Name="FournisseurID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="CATEGORIE" EntityType="Self.CATEGORIE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COMMANDE" EntityType="Self.COMMANDE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COULEUR" EntityType="Self.COULEUR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FOURNISSEUR" EntityType="Self.FOURNISSEUR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUIT" EntityType="Self.PRODUIT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUIT_COULEUR" EntityType="Self.PRODUIT_COULEUR" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_PRODUIT_CATEGORIE" Association="Self.FK_PRODUIT_CATEGORIE">
+      <End Role="CATEGORIE" EntitySet="CATEGORIE" />
+      <End Role="PRODUIT" EntitySet="PRODUIT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODUIT_COULEUR_COULEUR" Association="Self.FK_PRODUIT_COULEUR_COULEUR">
+      <End Role="COULEUR" EntitySet="COULEUR" />
+      <End Role="PRODUIT_COULEUR" EntitySet="PRODUIT_COULEUR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODUIT_COULEUR_PRODUIT" Association="Self.FK_PRODUIT_COULEUR_PRODUIT">
+      <End Role="PRODUIT" EntitySet="PRODUIT" />
+      <End Role="PRODUIT_COULEUR" EntitySet="PRODUIT_COULEUR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRODUIT_FOURNISSEUR" Association="Self.FK_PRODUIT_FOURNISSEUR">
+      <End Role="FOURNISSEUR" EntitySet="FOURNISSEUR" />
+      <End Role="PRODUIT" EntitySet="PRODUIT" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

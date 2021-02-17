@@ -1,0 +1,66 @@
+﻿@model WebApplication2.Models.ViewProductsViewModel
+
+@using WebApplication2.Models
+
+@{
+    Layout = "~/Views/Shared/_Header.cshtml";
+}
+
+    <div class="container-fluid p-0">
+        <div class="item-slider ">
+            <div class="slider-one">
+                <div>
+                    <img src="~/images/assets/item4.png" width="1800" height="500" class="img-fluid" alt="Banner 1" />
+                </div>
+                <div>
+                    <img src="~/images/assets/item6.jfif" width="1800" height="500" class="img-fluid" alt="Banner 2" />
+                </div>
+                <div>
+                    <img src="~/images/assets/item7.jfif" width="1800" height="500" class="img-fluid" alt="Banner 3" />
+                </div>
+            </div>
+            <div class="slider-btn">
+                <span class="prev position-top left slick-arrow"><em class="fas fa-chevron-left"></em></span>
+                <span class="next position-top right slick-arrow"><em class="fas fa-chevron-right"></em></span>
+            </div>
+        </div>
+    </div>
+
+    <!--smartphone-->
+    <section id="list_product">
+        <div class="container" id="list">
+            <h4 class="font-rubik font-size-30 text-center">SmartPhones</h4>
+            <hr />
+            <div class="owl-carousel owl-theme" id="item_phone">
+                @Html.Action("Categorie", "Home", new { cat = 1 })
+            </div>
+            <button type="submit" class="btn color-primary-bg font-size-20  btn-achat-tout" id="sphone" onclick="getCat(this)">Voir tout</button>
+        </div>
+    </section>
+    <!--laptop-->
+    <section id="list_product">
+        <div class="container" id="list">
+            <h4 class="font-rubik font-size-30 text-center">Laptop</h4>
+            <hr />
+            <div class="owl-carousel owl-theme" id="item_phone">
+                @Html.Action("Categorie", "Home", new { cat = 2 })
+            </div>
+            <button type="submit" class="btn color-primary-bg font-size-20  btn-achat-tout" id="laptop" onclick="getCat(this)">Voir tout</button>
+        </div>
+    </section>
+    <!--acc-->
+    <section id="list_product">
+        <div class="container" id="list">
+            <h4 class="font-rubik font-size-30 text-center">Accessoires</h4>
+            <hr />
+            <div class="owl-carousel owl-theme" id="item_phone">
+                @Html.Action("Categorie", "Home", new { cat = 3 })
+            </div>
+            <button type="submit" class="btn color-primary-bg font-size-20  btn-achat-tout" id="accessoire" onclick="getCat(this)">Voir tout</button>
+        </div>
+    </section>
+
+ 
+
+    
+

@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap" rel="stylesheet" />
+    <!--font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <!-- Required Core Stylesheet -->
+    <link rel="stylesheet" href="@Url.Content("node_modules/@glidejs/glide/dist/css/glide.core.min.css")" type="text/css">
+
+    <!-- Optional Theme Stylesheet -->
+    <link rel="stylesheet" href="@Url.Content("node_modules/@glidejs/glide/dist/css/glide.theme.min.css")" type="text/css">
+    <!--slick-->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <!--owl-carousel2-cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" />
+
+    <!--Plugin CSS file with desired skin-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css" />
+
+
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/StyleSheet1.css" />
+
+    <title>Universal</title>
+</head>
+<body>
+    <header class="header">
+        <div class="navigation_container">
+            <div class="container_header">
+                <nav class="nav_container">
+                    <div class="nav__hamburger navbar-toggle">
+                        <svg>
+                            <use xlink:href="~/images/sprite.svg#icon-menu"></use>
+                        </svg>
+                    </div>
+                    <div class="nav__logo">
+                        <a href="#" class="scroll-link">
+                            <strong><em>UNIVERSAL</em></strong>
+                        </a>
+                    </div>
+                    <div class="nav__menu">
+                        <div class="menu__top">
+                            <span class="nav__categorie">UNIVERSAL</span>
+                            <a href="#" class="close__toggle">
+                                <svg>
+                                    <use xlink:href="~/images/sprite.svg#icon-cross"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <ul class="nav__list">
+                            <li class="nav__item" onclick="getCat(this)" id="phone">
+                                <a href="/GestionProducts" class="nav__link scroll-link">Gestion des produits</a>
+                            </li>
+                            <li class="nav__item" onclick="getCat(this)" id="ordi">
+                                <a href="/GestionCategory" class="nav__link scroll-link">Gestion des categories</a>
+                            </li>
+                            <li class="nav__item" onclick="getCat(this)" id="acc">
+                                <a href="/GestionFournisseur" class="nav__link scroll-link">Gestion des fournisseur</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="nav_icons">
+                        <a href="#" class="icon_item">
+                            <span id="login">Admin</span>
+                            <svg>
+                                <use xlink:href="~/images/sprite.svg#icon-user"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        @RenderBody()
+
+    </main>
+   
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿@model WebApplication2.Models.ViewProductsViewModel
+
+@using WebApplication2.Models
+
+@{
+    Layout = null;
+}
+
+@foreach (Produit p in Model.Produits)
+{
+    <div class="item">
+        <div class="product font-rale">
+            <a href="/Produits/DetailsProduct?prodID=@p.ProduitID"><img src="~/images/Produit-@{@p.ProduitID}.jpg" alt="@p.Nom" id="product" /></a>
+            <div class="text-center">
+                <h3 class="font-baloo">@p.Nom</h3>
+                <h4 class="font-size-14 font-rubik brand">@p.fournisseur</h4>
+                <div class="rating font-size-12">
+                    <span><em class="fas fa-star"></em></span>
+                    <span><em class="fas fa-star"></em></span>
+                    <span><em class="fas fa-star"></em></span>
+                    <span><em class="fas fa-star"></em></span>
+                    <span><em class="fas fa-star"></em></span>
+                </div>
+                <div class="price">
+                    <span><strong>@p.Prix Dhs</strong></span>
+                </div>
+            </div>
+        </div>
+    </div>
+}
