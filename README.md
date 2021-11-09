@@ -16,4 +16,4 @@ E-commerce web site  ASP.NET MVC
 ![](payment-page.png)
 ![](payment-page2.png)
 # Responsive
-![](responsive.png)
+![](responsive.PNG)
